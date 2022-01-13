@@ -39,6 +39,21 @@
       "address": "0x7D4CEB45a521D702C6f1e0B16EF5fB766868B8b1",
       "txHash": "0x3c7691ddd5089c8ffe0fc01919bea8994ebd96a1dd430ae278dda3f3584c973e",
       "kind": "transparent"
+    },
+    {
+      "address": "0x49b3ef1b4F86d4AFbFa724dDbF7b8B5f7b0E4ccF",
+      "txHash": "0xdc49a533c503fb105cc80e23c7488600b7a43d7f066b3ed9799cae798c0b75d3",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x7c11bc0bBD4b7a29EDBE200Df146480a86F0dF08",
+      "txHash": "0xa7b9b915d373b1e93a69d76b70ff756a7fbc9a4aec94c9e889e106175fe5708a",
+      "kind": "transparent"
+    },
+    {
+      "address": "0x9Cdb78F5821c19852ae0D54Db60d36185fB1352F",
+      "txHash": "0xd92452e2240f4b8afeb6573362d1a9fabbeab59f02d6f60a08a54414d3c3f7aa",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -358,6 +373,1896 @@
           },
           "t_string_storage": {
             "label": "string"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "5c8fb258585a7b5d18b6b2d3c7230bd6fe15c208aa66263c17b7edc7135853bd": {
+      "address": "0x856D8f62198788D953B95c21CE48f8949af9027b",
+      "txHash": "0xbdecf17e9409c887e394eabc7cb01cef607d5400f8bd0e79caf13f60d44e96e6",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC165Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_owners",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_tokenApprovals",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_operatorApprovals",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:431"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokens",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokens",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)46_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:172"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)43_storage)",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:64"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:232"
+          },
+          {
+            "contract": "Haribo",
+            "label": "erc20",
+            "type": "t_contract(ERC20)3929",
+            "src": "contracts\\Haribo.sol:62"
+          },
+          {
+            "contract": "Haribo",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts\\Haribo.sol:64"
+          },
+          {
+            "contract": "Haribo",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:65"
+          },
+          {
+            "contract": "Haribo",
+            "label": "tokenId",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHungry",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:67"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultThirst",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultLevel",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:70"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleAtt",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleDef",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriPer",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:72"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriAttIncrease",
+            "type": "t_uint16",
+            "src": "contracts\\Haribo.sol:74"
+          },
+          {
+            "contract": "Haribo",
+            "label": "liveFee",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hpFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hungryFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:83"
+          },
+          {
+            "contract": "Haribo",
+            "label": "thirstFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:86"
+          },
+          {
+            "contract": "Haribo",
+            "label": "avatars",
+            "type": "t_mapping(t_address,t_struct(Avatar)4100_storage)",
+            "src": "contracts\\Haribo.sol:89"
+          }
+        ],
+        "types": {
+          "t_contract(ERC20)3929": {
+            "label": "contract ERC20"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_uint16": {
+            "label": "uint16"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_mapping(t_address,t_struct(Avatar)4100_storage)": {
+            "label": "mapping(address => struct Avatar)"
+          },
+          "t_struct(Avatar)4100_storage": {
+            "label": "struct Avatar",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nickname",
+                "type": "t_string_storage"
+              },
+              {
+                "label": "hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "hungry",
+                "type": "t_uint8"
+              },
+              {
+                "label": "thirst",
+                "type": "t_uint8"
+              },
+              {
+                "label": "level",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_att",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_def",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_per",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_att_increase",
+                "type": "t_uint16"
+              },
+              {
+                "label": "exp",
+                "type": "t_uint16"
+              },
+              {
+                "label": "fill_hungry_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "fill_thirst_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_win_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_lose_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "is_dead",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)43_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)43_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "eff1c9235b28c9701d0ab8f30295fe1d588a64941d1cfc146a93d797fbdc1970": {
+      "address": "0x987c536e8f74c5C7Ac10B5b5275b5B8Da217AE75",
+      "txHash": "0xabc5df8745ad9ede006118049b4f5869df142ccbbd392346f2948879f59c43c3",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC165Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_owners",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_tokenApprovals",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_operatorApprovals",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:431"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokens",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokens",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)46_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:172"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)43_storage)",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:64"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:232"
+          },
+          {
+            "contract": "Haribo",
+            "label": "erc20",
+            "type": "t_contract(ERC20)3929",
+            "src": "contracts\\Haribo.sol:62"
+          },
+          {
+            "contract": "Haribo",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts\\Haribo.sol:64"
+          },
+          {
+            "contract": "Haribo",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:65"
+          },
+          {
+            "contract": "Haribo",
+            "label": "tokenId",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHungry",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:67"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultThirst",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultLevel",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:70"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleAtt",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleDef",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriPer",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:72"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriAttIncrease",
+            "type": "t_uint16",
+            "src": "contracts\\Haribo.sol:74"
+          },
+          {
+            "contract": "Haribo",
+            "label": "liveFee",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hpFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hungryFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:83"
+          },
+          {
+            "contract": "Haribo",
+            "label": "thirstFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:86"
+          },
+          {
+            "contract": "Haribo",
+            "label": "avatars",
+            "type": "t_mapping(t_address,t_struct(Avatar)4100_storage)",
+            "src": "contracts\\Haribo.sol:89"
+          }
+        ],
+        "types": {
+          "t_contract(ERC20)3929": {
+            "label": "contract ERC20"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_uint16": {
+            "label": "uint16"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_mapping(t_address,t_struct(Avatar)4100_storage)": {
+            "label": "mapping(address => struct Avatar)"
+          },
+          "t_struct(Avatar)4100_storage": {
+            "label": "struct Avatar",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nickname",
+                "type": "t_string_storage"
+              },
+              {
+                "label": "hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "hungry",
+                "type": "t_uint8"
+              },
+              {
+                "label": "thirst",
+                "type": "t_uint8"
+              },
+              {
+                "label": "level",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_att",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_def",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_per",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_att_increase",
+                "type": "t_uint16"
+              },
+              {
+                "label": "exp",
+                "type": "t_uint16"
+              },
+              {
+                "label": "fill_hungry_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "fill_thirst_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_win_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_lose_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "is_dead",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)43_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)43_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "5ff39549b6f40a981071909ba55d9828619d618f5ad58e2c7cbeae8233ced0d7": {
+      "address": "0x5387116A0FFe6D35296e4acEF5C6c55c752794e1",
+      "txHash": "0xc0df1a595257a196394781a7c8dcd67349bf624547b82f613021d9f9fb8f0d49",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC165Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_owners",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_tokenApprovals",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_operatorApprovals",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:431"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokens",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokens",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)46_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:172"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)43_storage)",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:64"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:232"
+          },
+          {
+            "contract": "Haribo",
+            "label": "erc20",
+            "type": "t_contract(ERC20)3929",
+            "src": "contracts\\Haribo.sol:62"
+          },
+          {
+            "contract": "Haribo",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts\\Haribo.sol:64"
+          },
+          {
+            "contract": "Haribo",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:65"
+          },
+          {
+            "contract": "Haribo",
+            "label": "tokenId",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHungry",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:67"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultThirst",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultLevel",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:70"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleAtt",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleDef",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriPer",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:72"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriAttIncrease",
+            "type": "t_uint16",
+            "src": "contracts\\Haribo.sol:74"
+          },
+          {
+            "contract": "Haribo",
+            "label": "liveFee",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hpFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hungryFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:83"
+          },
+          {
+            "contract": "Haribo",
+            "label": "thirstFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:86"
+          },
+          {
+            "contract": "Haribo",
+            "label": "avatars",
+            "type": "t_mapping(t_address,t_struct(Avatar)4100_storage)",
+            "src": "contracts\\Haribo.sol:89"
+          }
+        ],
+        "types": {
+          "t_contract(ERC20)3929": {
+            "label": "contract ERC20"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_uint16": {
+            "label": "uint16"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_mapping(t_address,t_struct(Avatar)4100_storage)": {
+            "label": "mapping(address => struct Avatar)"
+          },
+          "t_struct(Avatar)4100_storage": {
+            "label": "struct Avatar",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nickname",
+                "type": "t_string_storage"
+              },
+              {
+                "label": "hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "hungry",
+                "type": "t_uint8"
+              },
+              {
+                "label": "thirst",
+                "type": "t_uint8"
+              },
+              {
+                "label": "level",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_att",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_def",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_per",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_att_increase",
+                "type": "t_uint16"
+              },
+              {
+                "label": "exp",
+                "type": "t_uint16"
+              },
+              {
+                "label": "fill_hungry_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "fill_thirst_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_win_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_lose_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "is_dead",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)43_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)43_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "7699d1e65f1c6408d8b8edd6e4bef032bfa2336d28322cd0ee6c5e8cedcb2828": {
+      "address": "0x418D9C5e5CBfE668C5bb8883131902b1194A18D6",
+      "txHash": "0xb68a3e8479be3595c4797db69fbaa9dc4c018a96e61e25e04907205f52544ad9",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC165Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_owners",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_tokenApprovals",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_operatorApprovals",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:431"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokens",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokens",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)46_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:172"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)43_storage)",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:64"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:232"
+          },
+          {
+            "contract": "Haribo",
+            "label": "erc20",
+            "type": "t_contract(ERC20)3929",
+            "src": "contracts\\Haribo.sol:62"
+          },
+          {
+            "contract": "Haribo",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts\\Haribo.sol:64"
+          },
+          {
+            "contract": "Haribo",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:65"
+          },
+          {
+            "contract": "Haribo",
+            "label": "tokenId",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHungry",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:67"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultThirst",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultLevel",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:70"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleAtt",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleDef",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriPer",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:72"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriAttIncrease",
+            "type": "t_uint16",
+            "src": "contracts\\Haribo.sol:74"
+          },
+          {
+            "contract": "Haribo",
+            "label": "liveFee",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hpFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hungryFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:83"
+          },
+          {
+            "contract": "Haribo",
+            "label": "thirstFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:86"
+          },
+          {
+            "contract": "Haribo",
+            "label": "avatars",
+            "type": "t_mapping(t_address,t_struct(Avatar)4100_storage)",
+            "src": "contracts\\Haribo.sol:89"
+          }
+        ],
+        "types": {
+          "t_contract(ERC20)3929": {
+            "label": "contract ERC20"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_uint16": {
+            "label": "uint16"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_mapping(t_address,t_struct(Avatar)4100_storage)": {
+            "label": "mapping(address => struct Avatar)"
+          },
+          "t_struct(Avatar)4100_storage": {
+            "label": "struct Avatar",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nickname",
+                "type": "t_string_storage"
+              },
+              {
+                "label": "hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "hungry",
+                "type": "t_uint8"
+              },
+              {
+                "label": "thirst",
+                "type": "t_uint8"
+              },
+              {
+                "label": "level",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_att",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_def",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_per",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_att_increase",
+                "type": "t_uint16"
+              },
+              {
+                "label": "exp",
+                "type": "t_uint16"
+              },
+              {
+                "label": "fill_hungry_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "fill_thirst_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_win_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_lose_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "is_dead",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)43_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)43_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]"
+          },
+          "t_mapping(t_uint256,t_address)": {
+            "label": "mapping(uint256 => address)"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)"
+          },
+          "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+            "label": "mapping(address => mapping(address => bool))"
+          },
+          "t_array(t_uint256)44_storage": {
+            "label": "uint256[44]"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]"
+          }
+        }
+      }
+    },
+    "66b45a35ec262931fb264b47e19ae79c06bc1904b6afae2b55270cfd2ba9268f": {
+      "address": "0x89AC3f14670C24487F814D19d545594944cDd9C2",
+      "txHash": "0x848983f3e687a2f571a77ee7fe38cf9b5611520d50db6f95e4fbcf424645e8f7",
+      "layout": {
+        "storage": [
+          {
+            "contract": "Initializable",
+            "label": "_initialized",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:39"
+          },
+          {
+            "contract": "Initializable",
+            "label": "_initializing",
+            "type": "t_bool",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\utils\\Initializable.sol:44"
+          },
+          {
+            "contract": "ContextUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC165Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)50_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\introspection\\ERC165Upgradeable.sol:36"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_name",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_symbol",
+            "type": "t_string_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_owners",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_balances",
+            "type": "t_mapping(t_address,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_tokenApprovals",
+            "type": "t_mapping(t_uint256,t_address)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:37"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "_operatorApprovals",
+            "type": "t_mapping(t_address,t_mapping(t_address,t_bool))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:40"
+          },
+          {
+            "contract": "ERC721Upgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)44_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\ERC721Upgradeable.sol:431"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokens",
+            "type": "t_mapping(t_address,t_mapping(t_uint256,t_uint256))",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:25"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_ownedTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:28"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokens",
+            "type": "t_array(t_uint256)dyn_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:31"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "_allTokensIndex",
+            "type": "t_mapping(t_uint256,t_uint256)",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:34"
+          },
+          {
+            "contract": "ERC721EnumerableUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)46_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\token\\ERC721\\extensions\\ERC721EnumerableUpgradeable.sol:172"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "_roles",
+            "type": "t_mapping(t_bytes32,t_struct(RoleData)43_storage)",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:64"
+          },
+          {
+            "contract": "AccessControlUpgradeable",
+            "label": "__gap",
+            "type": "t_array(t_uint256)49_storage",
+            "src": "@openzeppelin\\contracts-upgradeable\\access\\AccessControlUpgradeable.sol:232"
+          },
+          {
+            "contract": "Haribo",
+            "label": "erc20",
+            "type": "t_contract(ERC20)3929",
+            "src": "contracts\\Haribo.sol:62"
+          },
+          {
+            "contract": "Haribo",
+            "label": "owner",
+            "type": "t_address",
+            "src": "contracts\\Haribo.sol:64"
+          },
+          {
+            "contract": "Haribo",
+            "label": "fee",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:65"
+          },
+          {
+            "contract": "Haribo",
+            "label": "tokenId",
+            "type": "t_uint256",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:66"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultHungry",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:67"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultThirst",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultLevel",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:69"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleHp",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:70"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleAtt",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleDef",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:71"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriPer",
+            "type": "t_uint8",
+            "src": "contracts\\Haribo.sol:72"
+          },
+          {
+            "contract": "Haribo",
+            "label": "defaultBattleCriAttIncrease",
+            "type": "t_uint16",
+            "src": "contracts\\Haribo.sol:74"
+          },
+          {
+            "contract": "Haribo",
+            "label": "liveFee",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hpFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:79"
+          },
+          {
+            "contract": "Haribo",
+            "label": "hungryFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:83"
+          },
+          {
+            "contract": "Haribo",
+            "label": "thirstFeePer",
+            "type": "t_uint32",
+            "src": "contracts\\Haribo.sol:86"
+          },
+          {
+            "contract": "Haribo",
+            "label": "avatars",
+            "type": "t_mapping(t_address,t_struct(Avatar)4100_storage)",
+            "src": "contracts\\Haribo.sol:89"
+          }
+        ],
+        "types": {
+          "t_contract(ERC20)3929": {
+            "label": "contract ERC20"
+          },
+          "t_address": {
+            "label": "address"
+          },
+          "t_uint256": {
+            "label": "uint256"
+          },
+          "t_uint8": {
+            "label": "uint8"
+          },
+          "t_uint16": {
+            "label": "uint16"
+          },
+          "t_uint32": {
+            "label": "uint32"
+          },
+          "t_mapping(t_address,t_struct(Avatar)4100_storage)": {
+            "label": "mapping(address => struct Avatar)"
+          },
+          "t_struct(Avatar)4100_storage": {
+            "label": "struct Avatar",
+            "members": [
+              {
+                "label": "tokenId",
+                "type": "t_uint256"
+              },
+              {
+                "label": "nickname",
+                "type": "t_string_storage"
+              },
+              {
+                "label": "hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "hungry",
+                "type": "t_uint8"
+              },
+              {
+                "label": "thirst",
+                "type": "t_uint8"
+              },
+              {
+                "label": "level",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_hp",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_att",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_def",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_per",
+                "type": "t_uint8"
+              },
+              {
+                "label": "battle_cri_att_increase",
+                "type": "t_uint16"
+              },
+              {
+                "label": "exp",
+                "type": "t_uint16"
+              },
+              {
+                "label": "fill_hungry_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "fill_thirst_time",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_win_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "battle_lose_count",
+                "type": "t_uint256"
+              },
+              {
+                "label": "is_dead",
+                "type": "t_bool"
+              }
+            ]
+          },
+          "t_string_storage": {
+            "label": "string"
+          },
+          "t_bool": {
+            "label": "bool"
+          },
+          "t_mapping(t_bytes32,t_struct(RoleData)43_storage)": {
+            "label": "mapping(bytes32 => struct AccessControlUpgradeable.RoleData)"
+          },
+          "t_bytes32": {
+            "label": "bytes32"
+          },
+          "t_struct(RoleData)43_storage": {
+            "label": "struct AccessControlUpgradeable.RoleData",
+            "members": [
+              {
+                "label": "members",
+                "type": "t_mapping(t_address,t_bool)"
+              },
+              {
+                "label": "adminRole",
+                "type": "t_bytes32"
+              }
+            ]
+          },
+          "t_mapping(t_address,t_bool)": {
+            "label": "mapping(address => bool)"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]"
+          },
+          "t_mapping(t_address,t_mapping(t_uint256,t_uint256))": {
+            "label": "mapping(address => mapping(uint256 => uint256))"
+          },
+          "t_mapping(t_uint256,t_uint256)": {
+            "label": "mapping(uint256 => uint256)"
+          },
+          "t_array(t_uint256)dyn_storage": {
+            "label": "uint256[]"
+          },
+          "t_array(t_uint256)46_storage": {
+            "label": "uint256[46]"
           },
           "t_mapping(t_uint256,t_address)": {
             "label": "mapping(uint256 => address)"

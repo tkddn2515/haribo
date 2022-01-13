@@ -1,0 +1,86 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom right, black, pink);
+}
+
+.form {
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.form_img_container {
+  float: left;
+  width: 45%;
+  height: 100%;
+  background-color: blue;
+}
+
+.form_img {
+  content: url('../assets/img/haribo_loginform.png');
+  width: 50%;
+  margin-top: 50%;
+  margin-left: 50%;
+  transform: translate(-50%, -25%);
+}
+
+.form_login_container {
+  position: relative;
+  float: left;
+  width: 55%;
+  height: 100%;
+}
+
+.form_login_container form {  
+  width: 100%;
+  max-width: 480px;
+  text-align: center;
+}
+
+.login_label {
+  display: block;
+  font-size: 2.5rem;
+}
+
+#account {
+  margin-top: 10px;
+  width: 80%;
+  height: 40px;
+  padding: 0 1rem;
+
+  border: 1px solid rgb(58, 58, 58);
+  transition: 0.5s;
+}
+
+#account:hover {
+  border: 1px solid pink;
+}
+
+.btns {
+  margin-top: 10px;
+  text-align: end;
+}
+
+.login {
+  display: block;
+  margin: 0 auto;
+  background-color: pink;
+  font-size: 2rem;
+  border: none;
+  color: black;
+  width: 80%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.join {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid pink;
+  margin-right: 10%;
+  margin-top: 10px;
+  cursor: pointer;
+}

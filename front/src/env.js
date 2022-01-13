@@ -1,5 +1,5 @@
-export const HARIBO_ROPSTEN_ADDRESS = "0x7D4CEB45a521D702C6f1e0B16EF5fB766868B8b1";
-export const TOKEN_ROPSEN_ADDRESS = "0xBBd1f46Ddf2FA47E5C172898aA441DEEE7a70b5e";
+export const TOKEN_ROPSEN_ADDRESS = "0x076bAadF6c9f13C39F2c44709528f8d365358c28";
+export const HARIBO_ROPSTEN_ADDRESS = "0x9Cdb78F5821c19852ae0D54Db60d36185fB1352F";
 export const HARIBO_ABI = `[
   {
     "anonymous": false,
@@ -57,11 +57,136 @@ export const HARIBO_ABI = `[
       {
         "indexed": false,
         "internalType": "address",
+        "name": "_winner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_loser",
+        "type": "address"
+      }
+    ],
+    "name": "BattleResult",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
         "name": "_addr",
         "type": "address"
       }
     ],
-    "name": "AvatarDead",
+    "name": "DeadAvatar",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hungry",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "thirst",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "level",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_att",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_def",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_cri_per",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "battle_cri_att_increase",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "exp",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_hungry_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_thirst_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "is_dead",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Avatar",
+        "name": "_avatar",
+        "type": "tuple"
+      }
+    ],
+    "name": "EventBurn",
     "type": "event"
   },
   {
@@ -158,12 +283,112 @@ export const HARIBO_ABI = `[
       },
       {
         "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseHp",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseHungry",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseThirst",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
         "internalType": "uint256",
         "name": "_tokenId",
         "type": "uint256"
       }
     ],
     "name": "EventMint",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "_isLevelDown",
+        "type": "bool"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "downStat",
+        "type": "uint8"
+      }
+    ],
+    "name": "LiveAvatar",
     "type": "event"
   },
   {
@@ -282,78 +507,6 @@ export const HARIBO_ABI = `[
   {
     "inputs": [
       {
-        "internalType": "address[]",
-        "name": "_addr",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint8[]",
-        "name": "_decrease",
-        "type": "uint8[]"
-      }
-    ],
-    "name": "DecreaseHp",
-    "outputs": [
-      {
-        "internalType": "uint8[]",
-        "name": "",
-        "type": "uint8[]"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address[]",
-        "name": "_addr",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint8[]",
-        "name": "_decrease",
-        "type": "uint8[]"
-      }
-    ],
-    "name": "DecreaseHungry",
-    "outputs": [
-      {
-        "internalType": "uint8[]",
-        "name": "",
-        "type": "uint8[]"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address[]",
-        "name": "_addr",
-        "type": "address[]"
-      },
-      {
-        "internalType": "uint8[]",
-        "name": "_decrease",
-        "type": "uint8[]"
-      }
-    ],
-    "name": "DecreaseThirst",
-    "outputs": [
-      {
-        "internalType": "uint8[]",
-        "name": "",
-        "type": "uint8[]"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "address",
         "name": "to",
         "type": "address"
@@ -391,6 +544,109 @@ export const HARIBO_ABI = `[
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_winner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_loser",
+        "type": "address"
+      }
+    ],
+    "name": "battleWin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "burn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_addr",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint8[]",
+        "name": "_decrease",
+        "type": "uint8[]"
+      }
+    ],
+    "name": "decreaseHp",
+    "outputs": [
+      {
+        "internalType": "uint8[]",
+        "name": "",
+        "type": "uint8[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_addr",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint8[]",
+        "name": "_decrease",
+        "type": "uint8[]"
+      }
+    ],
+    "name": "decreaseHungry",
+    "outputs": [
+      {
+        "internalType": "uint8[]",
+        "name": "",
+        "type": "uint8[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_addr",
+        "type": "address[]"
+      },
+      {
+        "internalType": "uint8[]",
+        "name": "_decrease",
+        "type": "uint8[]"
+      }
+    ],
+    "name": "decreaseThirst",
+    "outputs": [
+      {
+        "internalType": "uint8[]",
+        "name": "",
+        "type": "uint8[]"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint256",
         "name": "tokenId",
         "type": "uint256"
@@ -423,6 +679,11 @@ export const HARIBO_ABI = `[
             "internalType": "uint256",
             "name": "tokenId",
             "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
           },
           {
             "internalType": "uint8",
@@ -483,11 +744,65 @@ export const HARIBO_ABI = `[
             "internalType": "uint256",
             "name": "fill_thirst_time",
             "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "is_dead",
+            "type": "bool"
           }
         ],
         "internalType": "struct Avatar",
         "name": "_avatar",
         "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHpFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHungryFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLiveFee",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
@@ -520,6 +835,19 @@ export const HARIBO_ABI = `[
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getThirstFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
@@ -568,6 +896,27 @@ export const HARIBO_ABI = `[
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "increaseHp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "increaseHungry",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "increaseThirst",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -606,6 +955,112 @@ export const HARIBO_ABI = `[
   },
   {
     "inputs": [],
+    "name": "liveAvatar",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hungry",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "thirst",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "level",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_att",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_def",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_cri_per",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "battle_cri_att_increase",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "exp",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_hungry_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_thirst_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "is_dead",
+            "type": "bool"
+          }
+        ],
+        "internalType": "struct Avatar",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_nickname",
+        "type": "string"
+      }
+    ],
     "name": "mint",
     "outputs": [
       {
@@ -740,6 +1195,24 @@ export const HARIBO_ABI = `[
     "inputs": [
       {
         "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+      }
+    ],
+    "name": "sendERC20Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "operator",
         "type": "address"
       },
@@ -757,12 +1230,64 @@ export const HARIBO_ABI = `[
   {
     "inputs": [
       {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setHpFeePer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setHungryFeePer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setLiveFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "_addr",
         "type": "address"
       }
     ],
     "name": "setOwner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setThirstFeePer",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -897,4 +1422,5 @@ export const HARIBO_ABI = `[
     "stateMutability": "nonpayable",
     "type": "function"
   }
-]`;
+]
+`;

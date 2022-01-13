@@ -1,11 +1,89 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
+import styles from './Join.module.css';
+import { useSelector, useDispatch, connect } from 'react-redux'
+import { get, post } from '../api';
+import store, { LOGIN } from '../store';
+import { useNavigate } from 'react-router-dom';
+import { connectSocket } from '../socket';
 
-const Join = memo(() => {
+const Join = memo(({Login}) => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  const [wallet, setWallet] = useState('');
+
+  useEffect(() => {
+    
+    getAccount();
+    
+    const subscribe = store.subscribe(() => {
+      Join();
+    });
+    
+    window.ethereum.on('accountsChanged', function(_accounts) {
+      setWallet(_accounts[0]);
+    });
+    
+    connectSocket();
+    
+    return () => {
+      subscribe();
+    }
+  }, [])
+
+  const getAccount = async () => {
+    if (typeof window.ethereum !== 'undefined') {
+      const account = await window.ethereum.request({ method: 'eth_requestAccounts' });
+      setWallet(account[0]);
+    }
+  }
+
+  const onChangeWallet = (e) => {
+    setWallet(e.target.value);
+  }
+
+  const Join = () => {
+    if(store.getState().user.id) {
+      navigate('/main');
+    }
+  }
+
+  const onClickJoin = async () => {
+    const data = {
+      wallet
+    }
+    const res = await post(`user/join`, data);
+    if(res) {
+      Login(res);
+    } else {
+      alert('이미 가입된 주소입니다.');
+    }
+  }
+
   return (
-    <div>
-      회원가입 가즈아
-    </div>
+    <>
+      <div className={styles.background}>
+        <div className={`${styles.form} center`}>
+          <div className={styles.form_join_container}>
+            <form className='center'>
+              <label htmlFor='account' className={styles.join_label}>가입을 위해 지갑주소를 적자!</label>
+              <input id={styles.account} value={wallet} onChange={onChangeWallet} readOnly/>
+              <div className={styles.btns}>
+                <button className={styles.join} type='button' onClick={onClickJoin}>회원가입</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
   )
 });
 
-export default Join;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    Login: data => dispatch(LOGIN(data))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Join);

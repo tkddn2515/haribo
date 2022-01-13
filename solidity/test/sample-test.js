@@ -1,5 +1,5 @@
 const { expect } = require("chai");
-const { ethers, upgrades } = require("hardhat");
+const { ethers, upgrades, waffle } = require("hardhat");
 
 describe("Haribo", function () {
 
@@ -13,8 +13,12 @@ describe("Haribo", function () {
   let HARIBO;
   let haribo;
 
+  let provider;
+
+
   this.beforeEach(async function() {
     [owner, addr1, addr2, addr3] = await ethers.getSigners();
+    provider = waffle.provider;
 
     ERC20 = await ethers.getContractFactory("HariboToken");
     erc20 = await ERC20.deploy();
@@ -28,14 +32,24 @@ describe("Haribo", function () {
   it("Decrease State", async ()=> {
     
     // owner의 돈을 haribo가 100만큼 옮길 수 있게 승인
-    let approve = await erc20.connect(owner).approve(haribo.address, 100);
+    // let approve = await erc20.connect(owner).approve(haribo.address, 100);
     // approve = await erc20.connect(addr1).approve(owner.address, 100);
     // approve = await erc20.connect(owner).approve(addr1.address, 100);
     // allowance = await erc20.allowance(addr1.address, owner.address);
 
     // addr1이 아바타를 하나 발행하고 배고픔 10 감소
     console.log("addr1이 아바타를 하나 발행하고 배고픔 10 감소");
-    await haribo.connect(addr1).mint();
+    let balance0ETH = await provider.getBalance(addr1.address);
+    console.log(`addr1 ether : ${balance0ETH}`)
+    await haribo.connect(addr1).mint('abcde');
+    await haribo.connect(addr2).mint('abcde');
+    await haribo.connect(addr3).mint('abcde');
+    balance0ETH = await provider.getBalance(addr1.address);
+    console.log(`addr1 ether : ${balance0ETH}`)
+    balance0ETH = await provider.getBalance(addr2.address);
+    console.log(`addr2 ether : ${balance0ETH}`)
+    balance0ETH = await provider.getBalance(addr3.address);
+    console.log(`addr3 ether : ${balance0ETH}`)
     let getAvatar = await haribo.getAvatar(addr1.address);
     await haribo.decreaseHungry([addr1.address], [10]);
     getAvatar = await haribo.getAvatar(addr1.address);

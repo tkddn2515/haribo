@@ -1,0 +1,73 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to top left, black, pink);
+}
+
+.form {
+  width: 60%;
+  height: 60%;
+  background-color: white;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+
+.form_join_container {
+  position: relative;
+  width: 55%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.form_join_container form {  
+  width: 100%;
+  text-align: center;
+}
+
+.join_label {
+  display: block;
+  font-size: 2.5rem;
+}
+
+#account {
+  margin-top: 10px;
+  width: 80%;
+  height: 40px;
+  padding: 0 1rem;
+
+  border: 1px solid rgb(58, 58, 58);
+  transition: 0.5s;
+}
+
+#account:hover {
+  border: 1px solid pink;
+}
+
+.btns {
+  margin-top: 10px;
+  text-align: end;
+}
+
+.join {
+  display: block;
+  margin: 0 auto;
+  background-color: pink;
+  font-size: 2rem;
+  border: none;
+  color: black;
+  width: 80%;
+  height: 40px;
+  cursor: pointer;
+}
+
+.join {
+  margin: 0 auto;
+  background-color: pink;
+  font-size: 2rem;
+  border: none;
+  color: black;
+  width: 80%;
+  height: 40px;
+  cursor: pointer;
+}

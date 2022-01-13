@@ -55,11 +55,136 @@
       {
         "indexed": false,
         "internalType": "address",
+        "name": "_winner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_loser",
+        "type": "address"
+      }
+    ],
+    "name": "BattleResult",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
         "name": "_addr",
         "type": "address"
       }
     ],
     "name": "DeadAvatar",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "tokenId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "hungry",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "thirst",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "level",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_hp",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_att",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_def",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint8",
+            "name": "battle_cri_per",
+            "type": "uint8"
+          },
+          {
+            "internalType": "uint16",
+            "name": "battle_cri_att_increase",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "exp",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_hungry_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "fill_thirst_time",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "is_dead",
+            "type": "bool"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct Avatar",
+        "name": "_avatar",
+        "type": "tuple"
+      }
+    ],
+    "name": "EventBurn",
     "type": "event"
   },
   {
@@ -143,6 +268,81 @@
       }
     ],
     "name": "EventDecreaseThirst",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseHp",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseHungry",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "_addr",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint8",
+        "name": "fiiled",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "fillAmount",
+        "type": "uint256"
+      }
+    ],
+    "name": "EventIncreaseThirst",
     "type": "event"
   },
   {
@@ -342,6 +542,37 @@
   {
     "inputs": [
       {
+        "internalType": "address",
+        "name": "_winner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_loser",
+        "type": "address"
+      }
+    ],
+    "name": "battleWin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "burn",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address[]",
         "name": "_addr",
         "type": "address[]"
@@ -448,6 +679,11 @@
             "type": "uint256"
           },
           {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
+          },
+          {
             "internalType": "uint8",
             "name": "hp",
             "type": "uint8"
@@ -508,6 +744,16 @@
             "type": "uint256"
           },
           {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
             "internalType": "bool",
             "name": "is_dead",
             "type": "bool"
@@ -516,6 +762,45 @@
         "internalType": "struct Avatar",
         "name": "_avatar",
         "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHpFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getHungryFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getLiveFee",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
@@ -548,6 +833,19 @@
         "internalType": "bytes32",
         "name": "",
         "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getThirstFeePer",
+    "outputs": [
+      {
+        "internalType": "uint32",
+        "name": "",
+        "type": "uint32"
       }
     ],
     "stateMutability": "view",
@@ -596,6 +894,27 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "increaseHp",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "increaseHungry",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "increaseThirst",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -633,13 +952,7 @@
     "type": "function"
   },
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-      }
-    ],
+    "inputs": [],
     "name": "liveAvatar",
     "outputs": [
       {
@@ -648,6 +961,11 @@
             "internalType": "uint256",
             "name": "tokenId",
             "type": "uint256"
+          },
+          {
+            "internalType": "string",
+            "name": "nickname",
+            "type": "string"
           },
           {
             "internalType": "uint8",
@@ -710,6 +1028,16 @@
             "type": "uint256"
           },
           {
+            "internalType": "uint256",
+            "name": "battle_win_count",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "battle_lose_count",
+            "type": "uint256"
+          },
+          {
             "internalType": "bool",
             "name": "is_dead",
             "type": "bool"
@@ -724,7 +1052,13 @@
     "type": "function"
   },
   {
-    "inputs": [],
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "_nickname",
+        "type": "string"
+      }
+    ],
     "name": "mint",
     "outputs": [
       {
@@ -859,6 +1193,24 @@
     "inputs": [
       {
         "internalType": "address",
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_price",
+        "type": "uint256"
+      }
+    ],
+    "name": "sendERC20Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
         "name": "operator",
         "type": "address"
       },
@@ -876,12 +1228,64 @@
   {
     "inputs": [
       {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setHpFeePer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setHungryFeePer",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setLiveFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "address",
         "name": "_addr",
         "type": "address"
       }
     ],
     "name": "setOwner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint32",
+        "name": "_fee",
+        "type": "uint32"
+      }
+    ],
+    "name": "setThirstFeePer",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"

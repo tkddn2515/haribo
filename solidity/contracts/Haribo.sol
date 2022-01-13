@@ -14,6 +14,8 @@ import "hardhat/console.sol";
 struct Avatar {
   uint256 tokenId;
 
+  string nickname; // 닉네임
+
   uint8 hp;// 체력
   uint8 hungry; // 배고픔
   uint8 thirst;// 갈증
@@ -52,17 +54,17 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
   // 토큰
   uint256 private tokenId;
 
-  uint8 default_hp;// 체력
-  uint8 default_hungry;// 체력
-  uint8 default_thirst;// 갈증
-  uint8 default_level;
+  uint8 defaultHp;// 체력
+  uint8 defaultHungry;// 체력
+  uint8 defaultThirst;// 갈증
+  uint8 defaultLevel;
 
   // 전투 관련
-  uint8 default_battle_hp; // 전투 체력
-  uint8 default_battle_att; // 공격력
-  uint8 default_battle_def; // 방어력
-  uint8 default_battle_cri_per; // 크리티컬 확률
-  uint16 default_battle_cri_att_increase; // 크리티컬 증가율(퍼센테이지)
+  uint8 defaultBattleHp; // 전투 체력
+  uint8 defaultBattleAtt; // 공격력
+  uint8 defaultBattleDef; // 방어력
+  uint8 defaultBattleCriPer; // 크리티컬 확률
+  uint16 defaultBattleCriAttIncrease; // 크리티컬 증가율(퍼센테이지)
 
   uint32 liveFee; // 부활에 필요한 수수료
   uint32 hpFeePer; // 체력을 채우기 위한 수수료, 현재 깍인 체력 수치 * hpFeePer
@@ -80,6 +82,7 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
   event EventChangeOwner(address _owner);
   event EventChangeFee(uint256 _fee);
   event EventMint(address _addr, uint256 _tokenId);
+  event EventBurn(address _addr, Avatar _avatar);
   event EventDecreaseHp(address[] _addr, uint8[] _decrease);
   event EventDecreaseHungry(address[] _addr, uint8[] _decrease);
   event EventDecreaseThirst(address[] _addr, uint8[] _decrease);
@@ -97,22 +100,24 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
     setAdminRole();
     erc20 = ERC20(_erc20);
 
-    init_default();
+    initDefault();
+
+    // erc20.approveForce(owner, address(this), erc20.totalSupply());
 
     emit EventChangeOwner(owner);
   }
 
   // 전투관련 기본값 초기화
-  function init_default() private {
-    default_hp = 100;
-    default_hungry = 100;
-    default_thirst = 100;
-    default_level = 1;
-    default_battle_hp = 100;
-    default_battle_att = 5;
-    default_battle_def = 1;
-    default_battle_cri_per = 5;
-    default_battle_cri_att_increase = 100;
+  function initDefault() private {
+    defaultHp = 100;
+    defaultHungry = 100;
+    defaultThirst = 100;
+    defaultLevel = 1;
+    defaultBattleHp = 100;
+    defaultBattleAtt = 5;
+    defaultBattleDef = 1;
+    defaultBattleCriPer = 5;
+    defaultBattleCriAttIncrease = 100;
 
     liveFee = 30;
     hpFeePer = 20;
@@ -209,7 +214,7 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
   }
   
   // 발행하면서 계정에 아바타 생성
-  function mint() external returns(uint256) {
+  function mint(string memory _nickname) external returns(uint256) {
     require(msg.sender != address(0), "address is a zero address");
     require(balanceOf(msg.sender) == 0, "this address already exist avatar");
     uint256 newTokenId = getTokenId();
@@ -219,15 +224,16 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
 
     Avatar memory a = Avatar({
       tokenId: newTokenId,
-      hp: default_hp,
-      hungry: default_hungry,
-      thirst: default_thirst,
-      level: default_level,
-      battle_hp: default_battle_hp,
-      battle_att: default_battle_att,
-      battle_def: default_battle_def,
-      battle_cri_per: default_battle_cri_per,
-      battle_cri_att_increase: default_battle_cri_att_increase,
+      nickname: _nickname,
+      hp: defaultHp,
+      hungry: defaultHungry,
+      thirst: defaultThirst,
+      level: defaultLevel,
+      battle_hp: defaultBattleHp,
+      battle_att: defaultBattleAtt,
+      battle_def: defaultBattleDef,
+      battle_cri_per: defaultBattleCriPer,
+      battle_cri_att_increase: defaultBattleCriAttIncrease,
       exp: 0,
       fill_hungry_time: timeNow,
       fill_thirst_time: timeNow,
@@ -236,12 +242,23 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
       is_dead: false
     });
     avatars[msg.sender] = a;
-    erc20.approveForce(address(this), msg.sender, 100);
+    erc20.approveForce(owner, address(this), 100);
     bool result = erc20.transferFrom(owner, msg.sender, 100);
     require(result, "transfer token failed");
 
     emit EventMint(msg.sender, newTokenId);
     return newTokenId;
+  }
+
+  // 아바타 삭제하기
+  function burn() external returns(bool) {
+    require(msg.sender != address(0), "address is a zero address");
+    require(balanceOf(msg.sender) > 0, "this address does not exist avatar");
+    Avatar memory _avatar = avatars[msg.sender];
+    _burn(avatars[msg.sender].tokenId);
+    delete avatars[msg.sender];
+
+    emit EventBurn(msg.sender, _avatar);
   }
 
   // 계정의 아바타 받아오기
@@ -298,8 +315,8 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
 
   // 체력 충전
   function increaseHp() activity external {
-    require(avatars[msg.sender].hp < default_hp, "hp is full");
-    uint8 toFill = default_hp - avatars[msg.sender].hp;
+    require(avatars[msg.sender].hp < defaultHp, "hp is full");
+    uint8 toFill = defaultHp - avatars[msg.sender].hp;
     uint32 fillFee = toFill * hpFeePer / 100;
 
     require(erc20.balanceOf(msg.sender) >= fillFee, "not enough fee");
@@ -313,8 +330,8 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
 
   // 배고픔 충전
   function increaseHungry() activity external {
-    require(avatars[msg.sender].hungry < default_hungry, "hungry is full");
-    uint8 toFill = default_hungry - avatars[msg.sender].hungry;
+    require(avatars[msg.sender].hungry < defaultHungry, "hungry is full");
+    uint8 toFill = defaultHungry - avatars[msg.sender].hungry;
     uint32 fillFee = toFill * hungryFeePer / 100;
 
     require(erc20.balanceOf(msg.sender) >= fillFee, "not enough fee");
@@ -328,8 +345,8 @@ contract Haribo is Initializable, ERC721EnumerableUpgradeable, AccessControlUpgr
 
    // 갈증 충전
   function increaseThirst() activity external {
-    require(avatars[msg.sender].thirst < default_thirst, "thirst is full");
-    uint8 toFill = default_thirst - avatars[msg.sender].thirst;
+    require(avatars[msg.sender].thirst < defaultThirst, "thirst is full");
+    uint8 toFill = defaultThirst - avatars[msg.sender].thirst;
     uint32 fillFee = toFill * thirstFeePer / 100;
     require(erc20.balanceOf(msg.sender) >= fillFee, "not enough fee");
 
