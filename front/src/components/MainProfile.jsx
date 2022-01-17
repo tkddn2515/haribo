@@ -5,7 +5,7 @@ import store, { LOGIN } from '../store';
 import { useNavigate } from 'react-router-dom';
 import styles from './MainProfile.module.css';
 
-const MainProfile = ({user, avatar, setCreateAvatar, onClickBurn, onCllickCreateRoom}) => {
+const MainProfile = ({user, avatar, setCreateAvatar, onClickBurn, setCreateBattleRoom}) => {
   return (
     <div>
       <div className={styles.profile_container}>
@@ -15,7 +15,7 @@ const MainProfile = ({user, avatar, setCreateAvatar, onClickBurn, onCllickCreate
             <img className={styles.thumb} />
             <div className={styles.nickname}>{user.nickname}</div>
             <div className={styles.wallet}>{user.wallet}</div>
-            <div className={styles.createRoom} onClick={onCllickCreateRoom}>방 생성</div>
+            <div className={styles.createRoom} onClick={() => {setCreateBattleRoom(true)}}>방 생성</div>
             <div className={styles.avatarStatus}>
               아바타 정보
               {Object.entries(avatar).filter(v=> !["tokenId", "fill_hungry_time", "fill_thirst_time"].includes(v[0])).map((v, idx) => 
@@ -44,6 +44,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setCreateAvatar: ownProps.setCreateAvatar,
+    setCreateBattleRoom: ownProps.setCreateBattleRoom,
     onClickBurn: ownProps.onClickBurn,
     onCllickCreateRoom: ownProps.onCllickCreateRoom
   }

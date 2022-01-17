@@ -1,20 +1,21 @@
 import React, { memo, useEffect, useState, useRef, useMemo, useCallback } from 'react'
 import styles from './Main.module.css';
 import { put } from '../api';
-import { SET_USER, SET_AVATAR } from '../store';
+import { SET_USER, SET_AVATAR, SET_PAGE } from '../store';
 import { useNavigate } from 'react-router-dom';
 import BattleRoom from '../components/BattleRoom';
 import MainProfile from '../components/MainProfile';
 import CreateAvatar from '../components/CreateAvatar';
+import CreateBattleRoom from '../components/CreateBattleRoom';
 import { Haribo_Contract_Provider, mint, burn, getAvatar } from '../contract';
 import { connect } from 'react-redux';
-import { connectSocket } from '../socket';
+import { connectSocket, sendMessage } from '../socket';
 
-const Main = ({ user, setUser, setAvatar }) => {
-  const wsUri = "ws://localhost:8080/main";
-  const webSocket = useRef(null);
+const Main = ({ user, battleRoomList, setUser, setAvatar, setPage }) => {
+  
   const nicknameInput = useRef('');
-  const [showCreate, setShowCreate] = useState(false);
+  const [showCreateAvatar, setShowCreateAvatar] = useState(false);
+  const [showCreateBattleRoom, setShowCreateBattleRoom] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
 
@@ -22,8 +23,11 @@ const Main = ({ user, setUser, setAvatar }) => {
       navigate('/login');
       return;
     }
+
+    setPage("Main");
+
     connectSocket();
-    
+
     if(user.avatar_id) {
       getAvatar(user.wallet, getAvatarInContract);
     } else{
@@ -38,21 +42,9 @@ const Main = ({ user, setUser, setAvatar }) => {
   useEffect(() => {
   }, [user])
 
-  const onClickTest = () => {
-    const data = {
-      type: 'createRoom',
-      user
-    }
-    console.log("send", data);
-    webSocket.current.send(JSON.stringify(data));
-  }
-
-  
-
   const onClickCreateAvatar = async (nickname) => {
     if(nickname) {
       nicknameInput.current = nickname;
-      console.log('nicknameInput.current', nicknameInput.current);
       mint(user.wallet, nickname, (res) => {
       }, (error) => {
         if(JSON.stringify(error).includes("this address already exist avatar")) {
@@ -64,8 +56,21 @@ const Main = ({ user, setUser, setAvatar }) => {
     }
   }
 
+  const onClickCreateBattleRoom = async (roomName) => {
+    const data = {
+      type: "createBattleRoom",
+      roomName,
+      user
+    }
+    sendMessage(JSON.stringify(data));
+  }
+
   const setCreateAvatar = useCallback((_b) => {
-    setShowCreate(_b);
+    setShowCreateAvatar(_b);
+  }, []);
+
+  const setCreateBattleRoom = useCallback((_b) => {
+    setShowCreateBattleRoom(_b);
   }, [])
 
   let updated = false;
@@ -79,8 +84,7 @@ const Main = ({ user, setUser, setAvatar }) => {
       avatar_id,
       nickname: nicknameInput.current
     }
-    console.log('data', data);
-    setShowCreate(false);
+    setShowCreateAvatar(false);
     getAvatar(user.wallet, getAvatarInContract);
     const res = await put("user/update", data);
     if(res){
@@ -115,40 +119,44 @@ const Main = ({ user, setUser, setAvatar }) => {
     });
   }
 
-  const onCllickCreateRoom = () => {
-
-  }
-
   const onClickBurn = () => {
     burn(user.wallet);
   }
 
+  const onClickAll = () => {
+    const data = {
+      type: "getAllListner"
+    }
+    sendMessage(JSON.stringify(data));
+  }
+
+  const onClickRoom = () => {
+    const data = {
+      type: "getPageListener"
+    }
+    sendMessage(JSON.stringify(data));
+  }
+
   return (
     <>
-    {/* <div style={{position:'fixed', color:'red', fontSize:'20px', fontWeight:'bold', top:'0', textAlign:'right', right:'0'}}>
-      {'id : ' + user.id}<br />
-      {'wallet : ' + user.wallet}<br />
-      {'avatar_id : ' + user.avatar_id}<br />
-      {'nickname : ' + user.nickname}<br />
-    </div> */}
-      
       <div className={styles.container}>
         <div className={styles.roomlist_container}>
-          <BattleRoom />
-          <BattleRoom />
-          <BattleRoom />
+          {battleRoomList.map(v => <BattleRoom key={`${v.owner.id}`} roomInfo={v} />)}
         </div>
-        <MainProfile setCreateAvatar={setCreateAvatar} onClickBurn={onClickBurn}/>
+        <MainProfile setCreateAvatar={setCreateAvatar} setCreateBattleRoom={setCreateBattleRoom} onClickBurn={onClickBurn}/>
       </div> 
-      {showCreate && <CreateAvatar onClickCreateAvatar={onClickCreateAvatar} setCreateAvatar={setCreateAvatar} onCllickCreateRoom={onCllickCreateRoom}/>}
-      <button onClick={onClickTest}>클릭~</button>
+      {showCreateAvatar && <CreateAvatar onClickCreateAvatar={onClickCreateAvatar} setCreateAvatar={setCreateAvatar} />}
+      {showCreateBattleRoom && <CreateBattleRoom onClickCreateBattleRoom={onClickCreateBattleRoom} setCreateBattleRoom={setCreateBattleRoom} />}
+      <button onClick={onClickAll}>모든</button>
+      <button onClick={onClickRoom}>방별</button>
     </>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    user : state.user
+    user : state.user,
+    battleRoomList : state.battleRoomList,
   }
 }
 
@@ -156,6 +164,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setUser: data => dispatch(SET_USER(data)),
     setAvatar: data => dispatch(SET_AVATAR(data)),
+    setPage: data => dispatch(SET_PAGE(data)),
   }
 }
 

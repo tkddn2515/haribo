@@ -2,18 +2,17 @@ import React, { memo, useEffect, useState } from 'react'
 import styles from './Join.module.css';
 import { useSelector, useDispatch, connect } from 'react-redux'
 import { get, post } from '../api';
-import store, { LOGIN } from '../store';
+import store, { LOGIN, SET_PAGE } from '../store';
 import { useNavigate } from 'react-router-dom';
-import { connectSocket } from '../socket';
 
-const Join = memo(({Login}) => {
+const Join = memo(({Login, setPage}) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   const [wallet, setWallet] = useState('');
 
   useEffect(() => {
+
+    setPage("Join");
     
     getAccount();
     
@@ -25,8 +24,7 @@ const Join = memo(({Login}) => {
       setWallet(_accounts[0]);
     });
     
-    connectSocket();
-    
+
     return () => {
       subscribe();
     }
@@ -82,7 +80,8 @@ const Join = memo(({Login}) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    Login: data => dispatch(LOGIN(data))
+    Login: data => dispatch(LOGIN(data)),
+    setPage: data => dispatch(SET_PAGE(data)),
   }
 }
 

@@ -17,14 +17,15 @@
   width: 45%;
   height: 100%;
   background-color: blue;
+  position: relative;
 }
 
 .form_img {
   content: url('../assets/img/haribo_loginform.png');
   width: 50%;
-  margin-top: 50%;
+  /* margin-top: 50%;
   margin-left: 50%;
-  transform: translate(-50%, -25%);
+  transform: translate(-50%, -25%); */
 }
 
 .form_login_container {

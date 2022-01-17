@@ -1,5 +1,8 @@
+import store, { SET_BATTLEROOMLIST } from './store';
+
+
 const wsUri = "ws://localhost:8080/main";
-const webSocket = null;
+let webSocket = null;
 export const connectSocket = () => {
   if (!webSocket) {
     webSocket = new WebSocket(wsUri);
@@ -15,6 +18,12 @@ export const connectSocket = () => {
   }
 };
 
+export const sendMessage = (message) => {
+  if(webSocket) {
+    webSocket.send(message);
+  }
+}
+
 export const disconnectSocket = () => {
   if(webSocket) {
     webSocket.close();
@@ -22,11 +31,28 @@ export const disconnectSocket = () => {
 }
 
 const onOpen = (evt) => {
-  console.log("Connected to Endpoint!");
+  if(store.getState().page) {
+    const data = {
+      type: "page",
+      page: store.getState().page,
+    }
+    sendMessage(JSON.stringify(data));
+  }
 }
 
 const onMessage = (evt) => {
-  console.log("Message Received: " + evt.data);
+  const obj = JSON.parse(evt.data);
+  switch(obj.type) {
+    case "battleRoomList":
+      console.log(obj.data);
+      const battleRoomList = Object.entries(JSON.parse(obj.data)).map(v => v[1]);
+      console.log(battleRoomList);
+      store.dispatch(SET_BATTLEROOMLIST(battleRoomList));
+      break;
+    case "createBattleRoom":
+
+      break;
+  }
 }
 
 const onError = (evt) => {

@@ -9,12 +9,12 @@ const CreateAvatar = ({ onClickCreateAvatar, setCreateAvatar }) => {
   return (
     <div>
       <div className={styles.view}>
-        <div className={styles.container}>
+        <div className={`${styles.container} center`}>
           <span className={styles.close} onClick={()=>{setCreateAvatar(false)}}>x</span>
           <div className="center">
             <div className={styles.title}>아바타 생성</div>
-            <input type="text" className={styles.input_wallet} value={user.wallet} readOnly/>
-            <input type="text" className={styles.input_nickname} placeholder='닉네임을 입력해 주세요.' maxLength={10} ref={nicknameRef} />
+            <input type="text" className={`${styles.input_wallet} ${styles.input}`} value={user.wallet} readOnly/>
+            <input type="text" className={`${styles.input_nickname} ${styles.input}`} placeholder='닉네임을 입력해 주세요.' maxLength={10} ref={nicknameRef} />
             <button className={styles.btn} onClick={() => onClickCreateAvatar(nicknameRef.current.value)}>생성</button>
           </div>
         </div>

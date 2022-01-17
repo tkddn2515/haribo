@@ -2,18 +2,22 @@ import React, { memo, useEffect, useState } from 'react'
 import styles from './Login.module.css';
 import { connect } from 'react-redux'
 import { get } from '../api';
-import store, { LOGIN } from '../store';
+import store, { LOGIN, SET_PAGE } from '../store';
 import { useNavigate } from 'react-router-dom';
+import { connectSocket } from '../socket';
 
-const Login = memo(({user, LOGIN }) => {
+const Login = memo(({user, LOGIN, setPage }) => {
   const navigate = useNavigate();
 
   const [wallet, setWallet] = useState('');
   
   useEffect(() => {
+
+    setPage("Login");
+
     getAccount();
     
-    const unsubscirbe = store.subscribe(() => {
+    const unsubscribe = store.subscribe(() => {
       Login();
     });
 
@@ -21,9 +25,9 @@ const Login = memo(({user, LOGIN }) => {
       setWallet(_accounts[0]);
     });
 
+    connectSocket();
     return () => {
-      console.log("unsubscribe");
-      unsubscirbe();
+      unsubscribe();
     }
   }, [])
 
@@ -64,7 +68,7 @@ const Login = memo(({user, LOGIN }) => {
       <div className={styles.background}>
         <div className={`${styles.form} center`}>
           <div className={styles.form_img_container}>
-            <img className={styles.form_img} alt=''/>
+            <img className={`${styles.form_img} center`} alt=''/>
           </div>
           <div className={styles.form_login_container}>
             <form className='center'>
@@ -90,7 +94,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    LOGIN: data => dispatch(LOGIN(data))
+    LOGIN: data => dispatch(LOGIN(data)),
+    setPage: data => dispatch(SET_PAGE(data)),
   }
 }
 
